@@ -1,0 +1,244 @@
+/* General Page Styling */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  flex: 1;
+  padding: 10px;
+}
+
+.col-md-6 img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Headings and Paragraphs */
+h1, h2, p {
+  color: #FCD9B8;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Button Styling */
+.btn{
+  background-color: #E09145;
+  color: #141413;
+}
+
+/* Customize the button hover effect */
+.btn:hover {
+  color: #FCD9B8 !important;  /* Changes text color to #FCD9B8 on hover */
+  background-color: transparent !important;  /* Optional: keeps background color transparent */
+  border-color: transparent !important; /* Optional: removes border color */
+}
+
+
+.custom-btn {
+  background-color: transparent; /* No background */
+  border: 2px solid #FCD9B8; /* Border with your desired color */
+  color: #FCD9B8; /* Text color to match the border */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.custom-btn:hover {
+  background-color: #FCD9B8; /* Background color on hover */
+  color: #17181d; /* Dark text color on hover */
+}
+
+
+/* Gallery Section */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px; /* Increased spacing between artworks */
+  margin-bottom: 60px; /* Adds space before the banner */
+}
+
+.art-card {
+  background: #1b1b1b;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 8px rgba(252, 217, 184, 0.2);
+}
+
+/* Art Images */
+.art-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  max-height: 400px; /* Increase height if needed */
+  object-fit: contain; /* This ensures the full image is visible */
+  background-color: #141413; /* Adds a background for transparent images */
+}
+
+
+
+
+/* Art Details */
+.art-card h3 {
+  font-size: 1.5rem;
+  color: #FCD9B8;
+  margin: 10px 0;
+}
+
+.art-card p {
+  font-size: 1rem;
+  color: #E0E0E0;
+  margin: 5px 0;
+}
+
+/* Center Heading - Add More Space */
+.center-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px; /* Increased height */
+  width: 100%;
+  margin-bottom: 40px; /* Adds space between heading and artworks */
+}
+
+/* Gallery Banner - Add More Space */
+.gallery-banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  text-align: center;
+  height: 350px; /* Slightly taller */
+  padding: 40px; /* More padding for better text spacing */
+  margin-top: 80px; /* Extra spacing before the banner */
+  color: white;
+}
+
+.gallery-banner h2 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.gallery-banner p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  text-align: center;
+  padding: 50px 20px;
+  /* background-color: #141413; */
+  color: #ad5d0d;
+  margin-top: 80px;
+}
+
+.testimonial-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: #dbd7d7;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(252, 217, 184, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card p {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #252424;
+}
+
+.testimonial-card h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #252424;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .gallery {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .gallery-banner h2 {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .gallery-banner p {
+    font-size: 1rem;
+    color: #fff;
+
+  }
+
+  .center-heading {
+    height: 100px;
+    margin-bottom: 30px;
+  }
+
+  .gallery-banner {
+    height: 280px;
+    padding: 20px;
+    margin-top: 50px;
+  }
+
+  .testimonials {
+    flex-direction: column;
+    align-items: center;
+  }
+}

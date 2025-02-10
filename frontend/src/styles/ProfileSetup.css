@@ -1,0 +1,116 @@
+/* Profile Setup Container */
+.profile-setup-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #1E1F26; /* Dark background */
+  border-radius: 10px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Header Styling */
+.profile-setup-container h2 {
+  color: #FCD9B8;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Form Styling */
+.profile-setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background: #22232B;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.profile-setup-form:hover {
+  transform: scale(1.02);
+}
+
+/* Label Styling */
+.profile-setup-form label {
+  font-size: 16px;
+  color: #FCD9B8;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Input & Textarea Styling */
+.profile-setup-form textarea,
+.profile-setup-form input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #FCD9B8;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #17181D;
+  color: #FCD9B8;
+  resize: none;
+}
+
+.profile-setup-form textarea {
+  height: 100px;
+}
+
+/* Upload Input */
+.profile-setup-form input[type="file"] {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #FCD9B8;
+}
+
+/* Button Styling */
+.profile-setup-form button {
+  background-color: #E09145;
+  color: #141413;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.profile-setup-form button:hover {
+  color: #FCD9B8 !important;
+  background-color: transparent !important;
+  border: 2px solid #FCD9B8;
+}
+
+/* Success/Error Message */
+.profile-setup-message {
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: white;
+}
+
+.error-message {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-setup-container {
+      padding: 20px;
+  }
+
+  .profile-setup-form textarea {
+      height: 80px;
+  }
+}
