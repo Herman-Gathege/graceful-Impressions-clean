@@ -36,7 +36,8 @@ frontend_url = app.config['REACT_APP_URL']  # Use the value from config.py
 #                              "allow_headers": ["Content-Type", "Authorization"], 
 #                              "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 #                             }})
-CORS(app, supports_credentials=True)
+# CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": frontend_url}})
 
 
 

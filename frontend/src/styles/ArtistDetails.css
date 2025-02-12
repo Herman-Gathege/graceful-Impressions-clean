@@ -1,0 +1,93 @@
+/* Artist Profile Section */
+.artist-profile-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #1b1b1b;  /* Dark theme for consistency */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(252, 217, 184, 0.2);
+  text-align: center;
+  color: #FCD9B8; /* Matching text color */
+}
+
+.artist-profile-name {
+  font-size: 2rem;
+  color: #E09145;
+  margin-bottom: 15px;
+}
+
+.artist-profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px 0;
+  border: 4px solid #FCD9B8;
+}
+
+.artist-profile-bio {
+  font-size: 1rem;
+  color: #E0E0E0;
+  line-height: 1.6;
+}
+
+/* Artworks Gallery */
+.artist-profile-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.artist-profile-art-card {
+  background: #222; /* Slightly lighter than #1b1b1b */
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(252, 217, 184, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-profile-art-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(252, 217, 184, 0.3);
+}
+
+.artist-profile-art-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.artist-profile-art-name {
+  font-size: 1.2rem;
+  color: #FCD9B8;
+  margin-top: 10px;
+}
+
+.artist-profile-art-description {
+  font-size: 0.95rem;
+  color: #E0E0E0;
+  margin-top: 5px;
+}
+
+.artist-profile-art-price {
+  font-weight: bold;
+  color: #E09145;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .artist-profile-container {
+    padding: 15px;
+  }
+
+  .artist-profile-name {
+    font-size: 1.8rem;
+  }
+
+  .artist-profile-gallery {
+    grid-template-columns: 1fr;
+  }
+}

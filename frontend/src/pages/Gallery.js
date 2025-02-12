@@ -48,11 +48,9 @@ function Gallery() {
       <div className="center-heading">
         <h2>Featured Artworks by Artists</h2>
       </div>
-      <div className="gallery">
+      {/* <div className="gallery">
         {artworks.map((art) => (
-          <div key={art.id} className="art-card">
-            {/* <img src={`http://localhost:5000${art.image_url}`} alt={art.name} /> */}
-            {/* ✅ Use Cloudinary URL directly */}
+          <div key={art.id} className="art-card">            
             <a href={art.image_url} target="_blank" rel="noopener noreferrer">
               <img src={art.image_url} alt={art.name} />
             </a>
@@ -60,6 +58,27 @@ function Gallery() {
             <p>{art.description}</p>
             <p>By: {art.artist.name}</p>
             <p>kes {art.price}</p>
+          </div>
+        ))}
+      </div> */}
+
+      <div className="gallery">
+        {artworks.map((art) => (
+          <div key={art.id} className="art-card">
+            <div className="image-container">
+              <a href={art.image_url} target="_blank" rel="noopener noreferrer">
+                <img src={art.image_url} alt={art.name} />
+                <div className="overlay">
+                  <span>View Artwork</span>
+                </div>
+              </a>
+            </div>
+            <div className="card-content">
+              <h3>{art.name}</h3>
+              <p>{art.description}</p>
+              <p className="artist">By: {art.artist.name}</p>
+              <p className="price">KES {art.price}</p>
+            </div>
           </div>
         ))}
       </div>

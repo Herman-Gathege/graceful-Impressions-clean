@@ -210,3 +210,28 @@ def get_all_artists():
         }
         for artist in artists
     ]), 200
+
+
+@profile_routes.route('/artists/<int:artist_id>', methods=['GET'])
+def get_artist_details(artist_id):
+    artist = User.query.get(artist_id)
+
+    if not artist:
+        return jsonify({"error": "Artist not found"}), 404
+
+    return jsonify({
+        "id": artist.id,
+        "name": artist.name,
+        "bio": artist.bio,
+        "profile_picture": artist.profile_picture,
+        "artworks": [
+            {
+                "id": art.id,
+                "name": art.name,
+                "description": art.description,
+                "price": art.price,
+                "image_url": art.image_url
+            }
+            for art in artist.artworks
+        ]
+    }), 200

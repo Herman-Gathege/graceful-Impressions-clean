@@ -26,7 +26,7 @@ function Artists() {
       {/* Artists Section */}
       <div className="artists-section">
         <h2>Meet Our Talented Artists</h2>
-        <div className="artists-grid">
+        {/* <div className="artists-grid">
           {artists.map((artist) => (
             <div key={artist.id} className="artist-card">
               <img
@@ -34,6 +34,19 @@ function Artists() {
                 alt={artist.name}
               />
               <h3>{artist.name}</h3>
+            </div>
+          ))}
+        </div> */}
+        <div className="artists-grid">
+          {artists.map((artist) => (
+            <div key={artist.id} className="artist-card">
+              <Link to={`/artists/${artist.id}`}>
+                <img
+                  src={artist.profile_picture || "/default-profile.png"}
+                  alt={artist.name}
+                />
+                <h3>view {artist.name}</h3>
+              </Link>
             </div>
           ))}
         </div>
@@ -107,8 +120,6 @@ function Artists() {
               </button>
             </Link>
           </div>
-
-          
 
           {/* Right: Image */}
           <div className="col-md-6">
