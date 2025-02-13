@@ -1,168 +1,133 @@
-/* General Page Styling */
-.profile-container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
-  background-color: #1E1F26; /* Dark background */
-  border-radius: 10px;
-  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-/* Profile Header */
-h2, h1 {
-  color: #FCD9B8; /* Theme color */
-  margin-bottom: 15px;
-}
-
-/* Profile Information */
-.profile-info {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.profile-info img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 10px;
-  border: 3px solid #FCD9B8; /* Adds a border around profile picture */
-  transition: transform 0.3s ease-in-out;
-}
-
-.profile-info img:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
-}
-
-.profile-info p {
-  font-size: 16px;
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #17181d;
   color: #FCD9B8;
-  margin: 8px 0;
 }
 
-/* Form Styling */
-.art-form {
+/* Dashboard Layout */
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dashboard-layout {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px;
+  gap: 20px;
+}
+
+.profile-card, .add-art-card {
   background: #22232B;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 25px;
-  transition: transform 0.2s ease-in-out;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.art-form:hover {
-  transform: scale(1.02);
+/* Profile Image */
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FCD9B8;
 }
 
-.art-form input,
-.art-form textarea {
+/* 🎨 Styled Input Fields */
+input[type="text"],
+input[type="number"],
+textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #FCD9B8;
+  padding: 10px;
   border-radius: 6px;
+  border: 1px solid #FCD9B8;
   font-size: 16px;
   background-color: #17181D;
   color: #FCD9B8;
+  transition: border 0.3s ease;
 }
 
-.art-form textarea {
-  resize: none;
-  height: 100px;
+input:focus,
+textarea:focus {
+  border: 1px solid #E09145;
+  outline: none;
 }
 
-/* Upload Input */
+/* 🎨 Styled File Input */
 input[type="file"] {
-  border: none;
-  background: transparent;
+  display: block;
+  width: 100%;
+  background: #22232B;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #FCD9B8;
   color: #FCD9B8;
   cursor: pointer;
-  font-size: 14px;
+  transition: background 0.3s ease;
 }
 
-/* Buttons */
-.btn{
+input[type="file"]:hover {
+  background: #E09145;
+  color: #17181D;
+}
+
+/* 🎨 Buttons */
+.btn1 {
   background-color: #E09145;
-  color: #141413;
+  color: #17181D;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Customize the button hover effect */
-.btn:hover {
-  color: #FCD9B8 !important;  /* Changes text color to #FCD9B8 on hover */
-  background-color: transparent !important;  /* Optional: keeps background color transparent */
-  border-color: transparent !important; /* Optional: removes border color */
+.btn1:hover {
+  background: #FCD9B8;
+  color: #17181D;
 }
 
-
-.custom-btn {
-  background-color: transparent; /* No background */
-  border: 2px solid #FCD9B8; /* Border with your desired color */
-  color: #FCD9B8; /* Text color to match the border */
-  transition: all 0.3s ease; /* Smooth transition on hover */
+/* Artwork Grid */
+.dashboard-main {
+  flex: 1;
 }
 
-.custom-btn:hover {
-  background-color: #FCD9B8; /* Background color on hover */
-  color: #17181d; /* Dark text color on hover */
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
 }
 
-
-/* Artwork List */
-.artworks-container {
-  margin-top: 20px;
-}
-
-.artworks-container ul {
-  list-style: none;
-  padding: 0;
-}
-
-.artworks-container li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.art-card {
   background: #22232B;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
 }
 
-.artworks-container li:hover {
-  transform: scale(1.03);
+.art-card:hover {
+  transform: scale(1.05);
 }
 
-.artworks-container img {
-  width: 100px;
-  height: 100px;
+.art-image {
+  width: 100%;
+  height: 180px;
   object-fit: cover;
-  border-radius: 6px;
-  border: 2px solid #FCD9B8;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .profile-container {
-      padding: 20px;
-  }
-
-  .profile-info img {
-      width: 100px;
-      height: 100px;
-  }
-
-  .artworks-container li {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .artworks-container img {
-      margin-bottom: 10px;
-      width: 120px;
-      height: 120px;
-  }
+  border-radius: 10px;
 }

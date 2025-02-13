@@ -29,15 +29,8 @@ login_manager.login_view = "auth.login"  # This should match the name of the log
 
 # CORS setup with dynamic frontend URL from .env
 frontend_url = app.config['REACT_APP_URL']  # Use the value from config.py
-# CORS(app, origins=[frontend_url, "http://localhost:3000"])
 
-# CORS(app, resources={r"/*": {"origins": [frontend_url, "http://localhost:3000"], 
-#                              "supports_credentials": True, 
-#                              "allow_headers": ["Content-Type", "Authorization"], 
-#                              "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-#                             }})
-# CORS(app, supports_credentials=True)
-CORS(app, supports_credentials=True, resources={r"/*": {"origins": frontend_url}})
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": [frontend_url, "http://localhost:3000"]}})
 
 
 

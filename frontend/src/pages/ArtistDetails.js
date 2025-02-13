@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../context/AuthContext";  // ✅ Import authentication context
 import "../styles/ArtistDetails.css"; // Updated CSS filename
 
 const ArtistDetails = () => {
   const { id } = useParams();
+  const { fetchWithAuth } = useAuth();  // ✅ Use authenticated requests
   const [artist, setArtist] = useState(null);
+  
+
 
   useEffect(() => {
     axios
@@ -13,6 +17,32 @@ const ArtistDetails = () => {
       .then((response) => setArtist(response.data))
       .catch((error) => console.error("Error fetching artist details:", error));
   }, [id]);
+
+  const handleLike = async (artId) => {
+    try {
+      console.log(`Liking art ${artId}...`);
+      const response = await fetchWithAuth(`http://localhost:5000/api/art/${artId}/like`, {
+        method: "POST",
+      });
+  
+      const responseData = await response.json();
+      console.log("Response from like API:", responseData);
+  
+      if (response.ok) {
+        setArtist((prevArtist) => ({
+          ...prevArtist,
+          artworks: prevArtist.artworks.map((art) =>
+            art.id === artId ? { ...art, likes: responseData.likes } : art
+          ),
+        }));
+      } else {
+        alert(responseData.error); // Show error message if user already liked
+      }
+    } catch (error) {
+      console.error("Error liking art:", error);
+    }
+  };
+  
 
   if (!artist) return <p>Loading artist details...</p>;
 
@@ -23,6 +53,7 @@ const ArtistDetails = () => {
         <img className="artist-profile-image" src={artist.profile_picture} alt={artist.name} />
       )}
       <p className="artist-profile-bio">{artist.bio}</p>
+      
 
       <h3 className="artist-profile-artworks-title">Artworks</h3>
       <div className="artist-profile-gallery">
@@ -32,6 +63,9 @@ const ArtistDetails = () => {
             <h4 className="artist-profile-art-name">{art.name}</h4>
             <p className="artist-profile-art-description">{art.description}</p>
             <p className="artist-profile-art-price">Price: {art.price} KES</p>
+            <button className="like-button" onClick={() => handleLike(art.id)}>
+              ❤️ {art.likes || 0}
+            </button>
           </div>
         ))}
       </div>

@@ -52,29 +52,7 @@ def signup():
         print(f"Signup Error: {e}")  # Debugging
         return jsonify({"error": "An error occurred during signup."}), 500
 
-# ---- LOGIN ROUTE ----
-# @auth_routes.route('/login', methods=['POST'])
-# def login():
-#     try:
-#         data = request.get_json()
-#         email = data.get('email')
-#         password = data.get('password')
 
-#         user = User.query.filter_by(email=email).first()
-
-#         if user and user.check_password(password):  # ✅ Use the model's method
-#             access_token = create_access_token(identity=user.id)
-#             return jsonify({
-#                 "message": "Login successful",
-#                 "access_token": access_token,
-#                 "user": {"id": user.id, "name": user.name, "email": user.email}
-#             }), 200
-
-#         return jsonify({"error": "Invalid email or password"}), 400
-
-#     except Exception as e:
-#         print(f"Login Error: {e}")  # Debugging
-#         return jsonify({"error": "An error occurred during authentication."}), 500
 @auth_routes.route('/login', methods=['POST'])
 def login():
     try:

@@ -48,19 +48,6 @@ function Gallery() {
       <div className="center-heading">
         <h2>Featured Artworks by Artists</h2>
       </div>
-      {/* <div className="gallery">
-        {artworks.map((art) => (
-          <div key={art.id} className="art-card">            
-            <a href={art.image_url} target="_blank" rel="noopener noreferrer">
-              <img src={art.image_url} alt={art.name} />
-            </a>
-            <h3>{art.name}</h3>
-            <p>{art.description}</p>
-            <p>By: {art.artist.name}</p>
-            <p>kes {art.price}</p>
-          </div>
-        ))}
-      </div> */}
 
       <div className="gallery">
         {artworks.map((art) => (
@@ -76,8 +63,8 @@ function Gallery() {
             <div className="card-content">
               <h3>{art.name}</h3>
               <p>{art.description}</p>
-              <p className="artist">By: {art.artist.name}</p>
-              <p className="price">KES {art.price}</p>
+              <p className="artist">Done by: {art.artist.name}</p>
+              <p className="price">Price is: KES {art.price}</p>
             </div>
           </div>
         ))}

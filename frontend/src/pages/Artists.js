@@ -26,17 +26,7 @@ function Artists() {
       {/* Artists Section */}
       <div className="artists-section">
         <h2>Meet Our Talented Artists</h2>
-        {/* <div className="artists-grid">
-          {artists.map((artist) => (
-            <div key={artist.id} className="artist-card">
-              <img
-                src={artist.profile_picture || "/default-profile.png"} // Use default if no image
-                alt={artist.name}
-              />
-              <h3>{artist.name}</h3>
-            </div>
-          ))}
-        </div> */}
+
         <div className="artists-grid">
           {artists.map((artist) => (
             <div key={artist.id} className="artist-card">
@@ -58,10 +48,6 @@ function Artists() {
         <div className="gallery">
           {artworks.map((art) => (
             <div key={art.id} className="art-card">
-              {/* <img
-                src={`http://localhost:5000${art.image_url}`}
-                alt={art.name}
-              /> */}
               {/* ✅ Use Cloudinary URL directly */}
               <img src={art.image_url} alt={art.name} />
               <h3>{art.name}</h3>

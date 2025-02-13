@@ -1,7 +1,9 @@
 alembic==1.14.0
 bcrypt==4.2.1
 blinker==1.9.0
+certifi==2025.1.31
 click==8.1.8
+cloudinary==1.42.2
 Flask==3.1.0
 Flask-Bcrypt==1.0.1
 Flask-Cors==5.0.0
@@ -19,6 +21,8 @@ packaging==24.2
 psycopg2==2.9.10
 PyJWT==2.10.1
 python-dotenv==1.0.1
+six==1.17.0
 SQLAlchemy==2.0.36
 typing_extensions==4.12.2
+urllib3==2.3.0
 Werkzeug==3.1.3
