@@ -21,6 +21,7 @@ body {
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
   position: relative;
+  width: 100%;
 }
 
 /* 🔥 Active Link: Underline & Color Change */

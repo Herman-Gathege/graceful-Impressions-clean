@@ -147,27 +147,27 @@ function Home() {
           <div className="row text-center d-flex justify-content-center align-items-center flex-nowrap">
             <div className="col-md-4">
               <img
-                src="users.png"
+                src="live gallery.png"
                 alt="Users"
-                className="img-fluid rounded-circle mb-3"
+                className="img-fluid rounded mb-3"
               />
               <h3>100+</h3>
               <p>Live Galleries</p>
             </div>
             <div className="col-md-4">
               <img
-                src="users.png"
+                src="active-clients.png"
                 alt="Users"
-                className="img-fluid rounded-circle mb-3"
+                className="img-fluid rounded mb-3"
               />
               <h3>50+</h3>
               <p>Active Clients</p>
             </div>
             <div className="col-md-4">
               <img
-                src="users.png"
+                src="succesful-sales.png"
                 alt="Users"
-                className="img-fluid rounded-circle mb-3"
+                className="img-fluid rounded mb-3"
               />
               <h3>40+</h3>
               <p>Successful Sales</p>

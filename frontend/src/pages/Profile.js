@@ -356,7 +356,7 @@ const Profile = () => {
                     <h4>{art.name}</h4>
                     <p>{art.description}</p>
                     <p><strong>${art.price}</strong></p>
-                    <button onClick={() => handleDeleteArt(art.id)}>Delete</button>
+                    <button className="btn2" onClick={() => handleDeleteArt(art.id)}>Delete</button>
                   </div>
                 ))
               ) : (

@@ -1,67 +1,64 @@
 import React from 'react';
+import '../styles/ContactUs.css'; // Import the CSS file
 
 function ContactUs() {
   return (
-    <div className="container my-5">
-      <h2 className="text-center mb-4">Contact Us</h2>
-      
-      <div className="row">
-        <div className="col-md-6">
-          <h4>Get in Touch</h4>
-          <p>If you have any questions or need further information, feel free to reach out to us!</p>
-          
+    <section className="contact-section">
+      <div className="contact-container">
+        <div className="contact-form">
+          <h2 className="contact-title">Contact Us</h2>
+          <h4 className="form-heading">Get in Touch</h4>
+          <p className="form-description">
+            If you have any questions or need further information, feel free to reach out to us!
+          </p>
           <form>
-            {/* Name Input */}
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">Full Name</label>
+            <div className="input-group">
+              <label htmlFor="name" className="input-label">Full Name</label>
               <input
                 type="text"
-                className="form-control"
+                className="input-field"
                 id="name"
                 placeholder="Enter your full name"
               />
             </div>
 
-            {/* Email Input */}
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email Address</label>
+            <div className="input-group">
+              <label htmlFor="email" className="input-label">Email Address</label>
               <input
                 type="email"
-                className="form-control"
+                className="input-field"
                 id="email"
                 placeholder="Enter your email"
               />
             </div>
 
-            {/* Message Input */}
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">Your Message</label>
+            <div className="input-group">
+              <label htmlFor="message" className="input-label">Your Message</label>
               <textarea
-                className="form-control"
+                className="input-textarea"
                 id="message"
                 rows="5"
                 placeholder="Write your message here"
               ></textarea>
             </div>
 
-            {/* Submit Button */}
-            <button type="submit" className="btn ">Send Message</button>
+            <button type="submit" className="submit-btn">Send Message</button>
           </form>
         </div>
 
-        <div className="col-md-6">
-          <h4>Our Address</h4>
-          <p>123 EduLearn Street,</p>
-          <p>City, Country</p>
+        {/* <div className="contact-info">
+          <h4 className="info-heading">Our Address</h4>
+          <p className="info-text">123 EduLearn Street,</p>
+          <p className="info-text">City, Country</p>
 
-          <h4>Phone Number</h4>
-          <p>+123 456 7890</p>
+          <h4 className="info-heading">Phone Number</h4>
+          <p className="info-text">+123 456 7890</p>
 
-          <h4>Email</h4>
-          <p>contact@edulearn.com</p>
-        </div>
+          <h4 className="info-heading">Email</h4>
+          <p className="info-text">contact@edulearn.com</p>
+        </div> */}
       </div>
-    </div>
+    </section>
   );
 }
 

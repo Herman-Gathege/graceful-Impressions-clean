@@ -86,7 +86,7 @@ function Footer() {
       </div>
     </div>
     <hr className="bg-white" />
-    <p className="mb-0">&copy; 2024 Graceful Impressions. All Rights Reserved.</p>
+    <p className="mb-0">&copy; 2025 Graceful Impressions. All Rights Reserved.</p>
   </div>
 </footer>
 
