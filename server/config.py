@@ -13,8 +13,8 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY')
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
     REACT_APP_URL = os.getenv('REACT_APP_URL')
-    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)  # Extended token lifespan
-    JWT_REFRESH_TOKEN_EXPIRES = timedelta(days=1)  # Refresh token lifespan
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=15)  # Extended token lifespan
+    JWT_REFRESH_TOKEN_EXPIRES = timedelta(hours=1)  # Refresh token lifespan
 
 
  # Cloudinary credentials

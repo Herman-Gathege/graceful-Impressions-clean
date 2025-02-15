@@ -1,28 +1,36 @@
-p h2 h1{
+/* Increase Paragraph Text Size */
+p {
+  font-size: 300px; /* Adjust this value for a bigger text */
+  line-height: 1.6; /* Ensures readability */
+}
+
+/* Keep existing styles */
+p, h2, h1 {
   color: #FCD9B8;
 }
 
-.btn{
+/* Button Styling */
+.btn {
   background-color: #E09145;
   color: #141413;
 }
 
 /* Customize the button hover effect */
 .btn:hover {
-  color: #FCD9B8 !important;  /* Changes text color to #FCD9B8 on hover */
-  background-color: transparent !important;  /* Optional: keeps background color transparent */
-  border-color: transparent !important; /* Optional: removes border color */
+  color: #FCD9B8 !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
-
+/* Custom Button */
 .custom-btn {
-  background-color: transparent; /* No background */
-  border: 2px solid #FCD9B8; /* Border with your desired color */
-  color: #FCD9B8; /* Text color to match the border */
-  transition: all 0.3s ease; /* Smooth transition on hover */
+  background-color: transparent;
+  border: 2px solid #FCD9B8;
+  color: #FCD9B8;
+  transition: all 0.3s ease;
 }
 
 .custom-btn:hover {
-  background-color: #FCD9B8; /* Background color on hover */
-  color: #17181d; /* Dark text color on hover */
+  background-color: #FCD9B8;
+  color: #17181d;
 }

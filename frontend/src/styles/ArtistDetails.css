@@ -3,9 +3,8 @@
   max-width: 900px;
   margin: 40px auto;
   padding: 20px;
-  background: #1b1b1b;  /* Dark theme for consistency */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(252, 217, 184, 0.2);
+  background: #17181D;  /* Dark theme for consistency */
+ 
   text-align: center;
   color: #FCD9B8; /* Matching text color */
 }

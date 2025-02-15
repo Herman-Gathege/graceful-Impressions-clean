@@ -31,10 +31,12 @@ function Artists() {
           {artists.map((artist) => (
             <div key={artist.id} className="artist-card">
               <Link to={`/artists/${artist.id}`}>
-                <img
-                  src={artist.profile_picture || "/default-profile.png"}
-                  alt={artist.name}
-                />
+                <div className="artist-image-wrapper">
+                  <img
+                    src={artist.profile_picture || "/default-profile.png"}
+                    alt={artist.name}
+                  />
+                </div>
                 <h3>view {artist.name}</h3>
               </Link>
             </div>

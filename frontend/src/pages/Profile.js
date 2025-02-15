@@ -231,7 +231,7 @@ const Profile = () => {
         const response = await fetchWithAuth("http://localhost:5000/api/profile");
         if (response.ok) {
           const data = await response.json();
-          setUser({ ...data, artworks: data.artworks || [] });
+          setUser({ ...data, artworks: data.artworks || [] });  // ✅ Ensure artworks is always an array
         } else {
           console.error("Failed to fetch profile");
         }
@@ -325,6 +325,7 @@ const Profile = () => {
             <div className="profile-card">
               <h2>{user.name}</h2>
               <img className="profile-image" src={user.profile_picture || "default-profile.png"} alt="Profile" />
+              <p>{user.email}</p>
               <p>{user.bio || "No bio available"}</p>
               <form onSubmit={handleProfileSetup} className="profile-form">
                 <label>Update Profile Picture:</label>
@@ -349,7 +350,7 @@ const Profile = () => {
           <div className="dashboard-main">
             <h3>Your Art Collection</h3>
             <div className="art-grid">
-              {user.artworks.length > 0 ? (
+              {user.artworks?.length > 0 ? (
                 user.artworks.map((art) => (
                   <div key={art.id} className="art-card">
                     <img src={art.image_url} alt={art.name} className="art-image" />

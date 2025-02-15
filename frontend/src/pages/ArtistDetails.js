@@ -53,6 +53,7 @@ const ArtistDetails = () => {
         <img className="artist-profile-image" src={artist.profile_picture} alt={artist.name} />
       )}
       <p className="artist-profile-bio">{artist.bio}</p>
+      <p>Email: {artist.email}</p>
       
 
       <h3 className="artist-profile-artworks-title">Artworks</h3>

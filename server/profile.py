@@ -189,6 +189,7 @@ def get_artist_details(artist_id):
         "id": artist.id,
         "name": artist.name,
         "bio": artist.bio,
+        "email": artist.email,
         "profile_picture": artist.profile_picture,
         "artworks": [
             {
@@ -225,3 +226,22 @@ def like_art(art_id):
 
     return jsonify({"message": "Art liked!", "likes": art.likes}), 200
 
+
+@profile_routes.route('/artworks/<int:art_id>', methods=['GET'])
+def get_artwork_details(art_id):
+    art = Art.query.get(art_id)
+
+    if not art:
+        return jsonify({"error": "Artwork not found"}), 404
+
+    return jsonify({
+        "id": art.id,
+        "name": art.name,
+        "description": art.description,
+        "price": art.price,
+        "image_url": art.image_url,
+        "artist": {
+            "id": art.artist.id,
+            "name": art.artist.name
+        }
+    }), 200

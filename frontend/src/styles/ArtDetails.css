@@ -1,0 +1,140 @@
+/* Art Details Page */
+.art-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #17181D;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  color: #FCD9B8;
+  gap: 30px;
+}
+
+/* Art Image - Left Side */
+.art-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.art-image {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  background-color: #17181D;
+}
+
+.art-image:hover {
+  transform: scale(1.05);
+}
+
+/* Right Side - Art Details */
+.art-info {
+  flex: 1;
+  text-align: left;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #FCD9B8;
+  margin-bottom: 10px;
+}
+
+.artist {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #E09145;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #E0E0E0;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #E09145;
+  margin-top: 15px;
+}
+
+.click-text {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 10px;
+}
+
+/* Fullscreen View */
+.fullscreen-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fullscreen-image img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Close Button */
+.fullscreen-image .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .art-details-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .art-image {
+    max-width: 90%;
+  }
+
+  .art-info {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+
+  .fullscreen-image img {
+    max-width: 95%;
+    max-height: 95%;
+  }
+}

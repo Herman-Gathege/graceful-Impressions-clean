@@ -20,19 +20,52 @@
 }
 
 .artist-card {
-  background: #1b1b1b;
+  background: #0F1015;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
   box-shadow: 0px 4px 8px rgba(252, 217, 184, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* ✅ Prevents any unwanted scaling issues */
 }
+
+/* Wrapper around the image */
+.artist-image-wrapper {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ Only zoom the image inside the wrapper */
+.artist-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ✅ Hover Effect - Only the image zooms */
+.artist-image-wrapper img:hover {
+  transform: scale(1.2);
+}
+
 
 .artist-card img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  border: #E09145 7px solid;
+
 }
+
+
 
 .artist-card h3 {
   font-size: 1.2rem;
@@ -81,7 +114,7 @@
 }
 
 .step {
-  background: #1b1b1b;
+  background: #0F1015;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(252, 217, 184, 0.2);

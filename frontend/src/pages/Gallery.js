@@ -46,19 +46,19 @@ function Gallery() {
 
       {/* Artworks Section */}
       <div className="center-heading">
-        <h2>Featured Artworks by Artists</h2>
+        <h2>Featured Artworks by our Artists</h2>
       </div>
 
       <div className="gallery">
         {artworks.map((art) => (
           <div key={art.id} className="art-card">
             <div className="image-container">
-              <a href={art.image_url} target="_blank" rel="noopener noreferrer">
+              <Link to={`/art/${art.id}`}>
                 <img src={art.image_url} alt={art.name} />
                 <div className="overlay">
                   <span>View Artwork</span>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="card-content">
               <h3>{art.name}</h3>

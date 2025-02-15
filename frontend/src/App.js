@@ -12,6 +12,8 @@ import Profile from "./pages/Profile";
 import ProfileSetup from "./pages/ProfileSetup";
 import Artists from "./pages/Artists";
 import ArtistDetails from "./pages/ArtistDetails";
+import ArtDetails from "./pages/ArtDetails";
+
 
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
             <Route path="/profile-setup" element={<ProfileSetup />} />
             <Route path="/artists" element={<Artists />} />
             <Route path="/artists/:id" element={<ArtistDetails />} />
-
+            <Route path="/art/:id" element={<ArtDetails />} />
 
           </Routes>
           <Footer />

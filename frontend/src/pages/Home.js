@@ -58,7 +58,7 @@ function Home() {
                 <div className="col-md-6 mb-4">
                   <div
                     className="box p-4"
-                    style={{ backgroundColor: "#14151A", borderRadius: "8px" }}
+                    style={{ backgroundColor: "#0F1015", borderRadius: "8px" }}
                   >
                     <img
                       src="connection 2.png"
@@ -72,7 +72,7 @@ function Home() {
                 <div className="col-md-6 mb-4">
                   <div
                     className="box p-4"
-                    style={{ backgroundColor: "#14151A", borderRadius: "8px" }}
+                    style={{ backgroundColor: "#0F1015", borderRadius: "8px" }}
                   >
                     <img
                       src="email-marketing 2.png"
@@ -88,7 +88,7 @@ function Home() {
                 <div className="col-md-6 mb-4">
                   <div
                     className="box p-4"
-                    style={{ backgroundColor: "#14151A", borderRadius: "8px" }}
+                    style={{ backgroundColor: "#0F1015", borderRadius: "8px" }}
                   >
                     <img
                       src="gallery 2.png"
@@ -102,7 +102,7 @@ function Home() {
                 <div className="col-md-6 mb-4">
                   <div
                     className="box p-4"
-                    style={{ backgroundColor: "#14151A", borderRadius: "8px" }}
+                    style={{ backgroundColor: "#0F1015", borderRadius: "8px" }}
                   >
                     <img
                       src="safety 2.png"
@@ -132,9 +132,9 @@ function Home() {
           </div>
           {/* Right: Content */}
           <div className="col-md-6">
-            <h1>We bring simplicity to our clients.</h1>
+            <h1>We bring simplicity to Your Art.</h1>
             <p>
-              Focus on your art, let us focus on getting you the right audience
+              Focus on your art, let us focus on getting you the right audience.
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ function Home() {
 
       {/* Stats Section */}
       <section className="live-stats bg-dark mb-5">
-        <div className="container">
+        <div className="container" style={{ backgroundColor: "#0F1015", borderRadius: "8px" }}>
           <h2 className="text-center mb-4">Live Stats</h2>
           <div className="row text-center d-flex justify-content-center align-items-center flex-nowrap">
             <div className="col-md-4">

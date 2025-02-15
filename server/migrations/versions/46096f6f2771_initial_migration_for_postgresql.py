@@ -1,8 +1,8 @@
-"""Recreating database with likes feature
+"""Initial migration for PostgreSQL
 
-Revision ID: 01900239f6ed
+Revision ID: 46096f6f2771
 Revises: 
-Create Date: 2025-02-13 18:18:08.580533
+Create Date: 2025-02-15 13:10:34.791301
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '01900239f6ed'
+revision = '46096f6f2771'
 down_revision = None
 branch_labels = None
 depends_on = None
