@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import "../styles/Buttons.css";
 
+const API_URL = process.env.REACT_APP_API_URL;
+console.log("Backend API URL:", API_URL); // Add this to verify if API_URL is defined
+
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,30 +18,29 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const userCredentials = { email, password };
-
+    
         try {
-            const response = await fetch('http://localhost:5000/auth/login', {
+            const response = await fetch(`${API_URL}/auth/login`, {  // ✅ Using env variable
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userCredentials),
             });
-
+    
             if (!response.ok) {
                 throw new Error('Invalid login credentials');
             }
-
+    
             const data = await response.json();
             if (data.access_token) {
                 login(data.access_token, data.refresh_token, data.user);
-
                 console.log("Stored Auth Token:", data.access_token);
-
+    
                 // Fetch user profile
-                const profileResponse = await fetchWithAuth('http://localhost:5000/api/profile');
+                const profileResponse = await fetchWithAuth(`${API_URL}/api/profile`); // ✅ Using env variable
                 if (profileResponse.ok) {
                     const profileData = await profileResponse.json();
                     console.log("Profile Response:", profileData);
-
+    
                     if (!profileData.bio) {
                         navigate('/profile-setup');
                     } else {
@@ -57,6 +60,7 @@ const Login = () => {
             setMessageType('error');
         }
     };
+    
 
     return (
         <div style={{ maxWidth: '400px', margin: 'auto', padding: '1rem', textAlign: 'center' }}>

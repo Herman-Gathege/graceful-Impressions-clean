@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Use environment variable
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(() => !!localStorage.getItem('authToken'));
@@ -14,11 +15,11 @@ export const AuthProvider = ({ children }) => {
                 console.error("No refresh token found!");
                 return null;
             }
-    
-            const response = await axios.post("http://localhost:5000/auth/refresh", {}, {
+
+            const response = await axios.post(`${API_URL}/auth/refresh`, {}, { // ✅ Using API_URL
                 headers: { Authorization: `Bearer ${refreshToken}` },
             });
-    
+
             localStorage.setItem("authToken", response.data.access_token);
             return response.data.access_token;
         } catch (error) {
@@ -26,34 +27,33 @@ export const AuthProvider = ({ children }) => {
             return null;
         }
     };
-    
 
     const login = (authToken, refreshToken, userData) => {
         setIsAuthenticated(true);
         setToken(authToken);
         localStorage.setItem('authToken', authToken);
         localStorage.setItem('refreshToken', refreshToken);
-    
+
         if (userData) {
             localStorage.setItem("user", JSON.stringify(userData));
         }
-    
+
         console.log("Stored Auth Token:", authToken);
         console.log("Stored User Data:", userData);
     };
-    
-    
 
     const logout = () => {
         setIsAuthenticated(false);
         setToken(null);
         localStorage.removeItem('authToken');
         localStorage.removeItem('refreshToken');
+        localStorage.removeItem('user'); // ✅ Ensure user data is also cleared
     };
 
-    const fetchWithAuth = async (url, options = {}) => {
+    const fetchWithAuth = async (endpoint, options = {}) => {
         let token = localStorage.getItem('authToken');
-        let response = await fetch(url, {
+
+        let response = await fetch(`${API_URL}${endpoint}`, { // ✅ Use API_URL
             ...options,
             headers: { ...options.headers, Authorization: `Bearer ${token}` },
         });
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
         if (response.status === 401) {
             token = await refreshToken();
             if (!token) return response;
-            response = await fetch(url, {
+            response = await fetch(`${API_URL}${endpoint}`, {
                 ...options,
                 headers: { ...options.headers, Authorization: `Bearer ${token}` },
             });

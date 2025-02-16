@@ -3,6 +3,10 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom'; // Import Link for navigation
 import "../styles/Buttons.css";
 
+// ✅ Debugging: Check if API_URL is loaded correctly
+const API_URL = process.env.REACT_APP_API_URL;
+console.log("Backend API URL:", API_URL);
+
 
 function Signup() {
     const [formData, setFormData] = useState({ name: '', email: '', password: '', confirmPassword: '' });
@@ -18,6 +22,13 @@ function Signup() {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // ✅ Password validation
+        if (formData.password !== formData.confirmPassword) {
+            setErrorMessage('Passwords do not match.');
+            return;
+        }
+
         const data = {
             name: formData.name,
             email: formData.email,
@@ -28,9 +39,9 @@ function Signup() {
         setErrorMessage('');
 
         try {
-            // const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, data);
-            const res = await axios.post(`http://localhost:5000/auth/signup`, data);
+            if (!API_URL) throw new Error("API_URL is not defined. Check your .env file!");
 
+            const res = await axios.post(`${API_URL}/auth/signup`, data); // ✅ Using env variable
             alert(res.data.message);
 
             navigate('/login'); // Redirect to login page

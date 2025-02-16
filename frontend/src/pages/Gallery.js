@@ -4,12 +4,14 @@ import "../styles/Gallery.css";
 import axios from "axios";
 import galleryBg from "../assets/gallery-bg.png";
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Use environment variable
+
 function Gallery() {
   const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/artworks")
+      .get(`${API_URL}/api/artworks`) // ✅ Use API_URL instead of localhost
       .then((response) => setArtworks(response.data))
       .catch((error) => console.error("Error fetching artworks:", error));
   }, []);

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../styles/ProfileSetup.css';  // ✅ Import CSS file
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Use environment variable
+
 const ProfileSetup = () => {
   const { fetchWithAuth } = useAuth();
   const [bio, setBio] = useState('');
@@ -20,7 +22,7 @@ const ProfileSetup = () => {
     }
 
     try {
-      const response = await fetchWithAuth('http://localhost:5000/api/profile/setup', {
+      const response = await fetchWithAuth(`${API_URL}/api/profile/setup`, { // ✅ Use API_URL
         method: 'POST',
         body: formData,
       });

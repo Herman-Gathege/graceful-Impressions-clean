@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Artists.css"; // Ensure this file exists
-
 import { Link } from "react-router-dom";
+
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Use environment variable
 
 function Artists() {
   const [artists, setArtists] = useState([]);
@@ -11,12 +12,12 @@ function Artists() {
   // Fetch all artists
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/artists") // Fetch artists
+      .get(`${API_URL}/api/artists`) // ✅ Use API_URL instead of localhost
       .then((response) => setArtists(response.data))
       .catch((error) => console.error("Error fetching artists:", error));
 
     axios
-      .get("http://localhost:5000/api/artworks") // Fetch artworks
+      .get(`${API_URL}/api/artworks`) // ✅ Use API_URL instead of localhost
       .then((response) => setArtworks(response.data))
       .catch((error) => console.error("Error fetching artworks:", error));
   }, []);
@@ -61,7 +62,7 @@ function Artists() {
         </div>
       </div>
 
-      {/* art purchase Section */}
+      {/* Art Purchase Section */}
       <section className="container mt-5 mb-5">
         <div className="row align-items-center">
           {/* Left: Content */}

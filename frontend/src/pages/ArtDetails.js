@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/ArtDetails.css"; // Ensure this file exists
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Use environment variable
+
 const ArtDetails = () => {
   const { id } = useParams(); // Get the artwork ID from URL
   const [art, setArt] = useState(null);
@@ -11,7 +13,7 @@ const ArtDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/artworks/${id}`)
+      .get(`${API_URL}/api/artworks/${id}`) // ✅ Use API_URL instead of localhost
       .then((response) => setArt(response.data))
       .catch((error) => {
         console.error("Error fetching artwork details:", error);

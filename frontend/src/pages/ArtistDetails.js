@@ -4,16 +4,16 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";  // ✅ Import authentication context
 import "../styles/ArtistDetails.css"; // Updated CSS filename
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Use environment variable
+
 const ArtistDetails = () => {
   const { id } = useParams();
   const { fetchWithAuth } = useAuth();  // ✅ Use authenticated requests
   const [artist, setArtist] = useState(null);
-  
-
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/artists/${id}`)
+      .get(`${API_URL}/api/artists/${id}`) // ✅ Use API_URL instead of localhost
       .then((response) => setArtist(response.data))
       .catch((error) => console.error("Error fetching artist details:", error));
   }, [id]);
@@ -21,13 +21,13 @@ const ArtistDetails = () => {
   const handleLike = async (artId) => {
     try {
       console.log(`Liking art ${artId}...`);
-      const response = await fetchWithAuth(`http://localhost:5000/api/art/${artId}/like`, {
+      const response = await fetchWithAuth(`${API_URL}/api/art/${artId}/like`, { // ✅ Use API_URL
         method: "POST",
       });
-  
+
       const responseData = await response.json();
       console.log("Response from like API:", responseData);
-  
+
       if (response.ok) {
         setArtist((prevArtist) => ({
           ...prevArtist,
@@ -42,7 +42,6 @@ const ArtistDetails = () => {
       console.error("Error liking art:", error);
     }
   };
-  
 
   if (!artist) return <p>Loading artist details...</p>;
 
@@ -54,7 +53,6 @@ const ArtistDetails = () => {
       )}
       <p className="artist-profile-bio">{artist.bio}</p>
       <p>Email: {artist.email}</p>
-      
 
       <h3 className="artist-profile-artworks-title">Artworks</h3>
       <div className="artist-profile-gallery">
