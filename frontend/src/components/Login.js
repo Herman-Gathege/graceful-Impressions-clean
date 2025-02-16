@@ -36,7 +36,7 @@ const Login = () => {
                 console.log("Stored Auth Token:", data.access_token);
     
                 // Fetch user profile
-                const profileResponse = await fetchWithAuth(`${API_URL}/api/profile`); // ✅ Using env variable
+                const profileResponse = await fetchWithAuth(`/api/profile`); // ✅ Using env variable
                 if (profileResponse.ok) {
                     const profileData = await profileResponse.json();
                     console.log("Profile Response:", profileData);

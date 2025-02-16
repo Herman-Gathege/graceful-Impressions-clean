@@ -53,7 +53,10 @@ export const AuthProvider = ({ children }) => {
     const fetchWithAuth = async (endpoint, options = {}) => {
         let token = localStorage.getItem('authToken');
 
-        let response = await fetch(`${API_URL}${endpoint}`, { // ✅ Use API_URL
+         // Ensure API_URL does not get concatenated twice
+        const url = endpoint.startsWith("http") ? endpoint : `${API_URL}${endpoint}`;
+
+        let response = await fetch(url, {  
             ...options,
             headers: { ...options.headers, Authorization: `Bearer ${token}` },
         });
@@ -61,7 +64,7 @@ export const AuthProvider = ({ children }) => {
         if (response.status === 401) {
             token = await refreshToken();
             if (!token) return response;
-            response = await fetch(`${API_URL}${endpoint}`, {
+            response = await fetch(url, {
                 ...options,
                 headers: { ...options.headers, Authorization: `Bearer ${token}` },
             });

@@ -71,11 +71,12 @@ def login():
             }), 200
 
         return jsonify({"error": "Invalid email or password"}), 400
+        
 
     except Exception as e:
         print(f"Login Error: {e}")  # Debugging
         return jsonify({"error": "An error occurred during authentication."}), 500
-
+       
 
 
 # ---- LOGOUT ROUTE ----
