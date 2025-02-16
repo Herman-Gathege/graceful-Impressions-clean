@@ -48,11 +48,18 @@ app.register_blueprint(profile_routes, url_prefix='/api')
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_frontend(path):
-    # Check if the path exists in the React build folder
-    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+    # Allow API and auth routes to work properly
+    if path.startswith("api") or path.startswith("auth"):
+        return "Not found", 404  
+
+    # Serve React static files if they exist
+    full_path = os.path.join(app.static_folder, path)
+    if os.path.exists(full_path):
         return send_from_directory(app.static_folder, path)
-    # Fallback to serve index.html for React routing
+
+    # ✅ If path doesn't exist, serve React's index.html for routing
     return send_from_directory(app.static_folder, 'index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
