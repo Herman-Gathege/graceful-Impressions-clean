@@ -5,7 +5,6 @@ import "../styles/Buttons.css";
 
 // ✅ Debugging: Check if API_URL is loaded correctly
 const API_URL = process.env.REACT_APP_API_URL;
-console.log("Backend API URL:", API_URL);
 
 
 function Signup() {

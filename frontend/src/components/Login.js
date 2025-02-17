@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext';
 import "../styles/Buttons.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
-console.log("Backend API URL:", API_URL); // Add this to verify if API_URL is defined
 
 
 const Login = () => {
