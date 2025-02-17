@@ -148,3 +148,43 @@ input[type="file"]:hover {
   object-fit: cover;
   border-radius: 10px;
 }
+
+/* Mobile View (Screens smaller than 768px) */
+@media (max-width: 768px) {
+  /* Stack sidebar and main content */
+  .dashboard-layout {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+  }
+
+  .dashboard-main {
+    width: 100%;
+  }
+
+  /* Adjust art grid for mobile */
+  .art-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  /* Remove hover effects on images */
+  .art-card:hover {
+    transform: none;
+  }
+
+  /* Reduce art image height */
+  .art-image {
+    height: 140px;
+  }
+
+  /* Adjust button styles for touch-friendly experience */
+  .btn1, .btn2 {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

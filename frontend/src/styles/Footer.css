@@ -1,0 +1,52 @@
+/* Default styles (for larger screens) */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 20px 0;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Responsive styles for screens below 768px */
+@media (max-width: 768px) {
+  footer .row {
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  footer .col-md-4 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  footer .list-unstyled {
+    padding: 0;
+  }
+
+  footer a {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  /* Make social icons larger and spaced out */
+  footer .fs-4 {
+    font-size: 1.8rem !important;
+    margin: 0 10px;
+  }
+
+  /* Remove horizontal rule for cleaner mobile look */
+  footer hr {
+    display: none;
+  }
+}

@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // Adjust the path if necessary
+import "../styles/Footer.css";
 
 function Footer() {
   const { isAuthenticated } = useAuth(); // Access the authentication state
