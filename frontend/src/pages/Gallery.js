@@ -64,7 +64,7 @@ function Gallery() {
             </div>
             <div className="card-content">
               <h3>{art.name}</h3>
-              <p>{art.description}</p>
+              {/* <p>{art.description}</p> */}
               <p className="artist">Done by: {art.artist.name}</p>
               <p className="price">Price is: KES {art.price}</p>
             </div>
